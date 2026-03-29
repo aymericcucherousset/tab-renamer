@@ -9,7 +9,8 @@
     "build-test": "tsc && vite build --config vite.content.config.ts && vite build --config vite.background.config.ts",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts --ignore-pattern 'dist/*'",
-    "lint:fix": "eslint . --ext .ts --fix --ignore-pattern 'dist/*'"
+    "lint:fix": "eslint . --ext .ts --fix --ignore-pattern 'dist/*'",
+    "zip": "cd dist && zip -r ../tab-renamer.zip ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
