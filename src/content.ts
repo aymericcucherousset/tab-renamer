@@ -1,7 +1,6 @@
 let currentTitle: string | null = null;
 let currentTabId: number | null = null;
 
-// GET current title from background
 function getTitle(): Promise<string | null> {
   return new Promise((resolve) => {
     chrome.runtime.sendMessage({ type: "GET_TAB_NAME" }, resolve);
@@ -39,7 +38,6 @@ function observeTitle() {
   observer.observe(titleEl, { childList: true });
 }
 
-
 function startLoop() {
   setInterval(() => {
     if (currentTitle && document.title !== currentTitle) {
@@ -73,8 +71,6 @@ function triggerRename() {
   document.title = newName;
 }
 
-
-// 🔹 message background
 chrome.runtime.onMessage.addListener((msg) => {
   if (msg.type === "RENAME_TAB") {
     currentTabId = msg.tabId;
@@ -82,17 +78,12 @@ chrome.runtime.onMessage.addListener((msg) => {
   }
 });
 
-
-// F2
 document.addEventListener("keydown", (e) => {
   if (e.key === "F2") {
-    // Demande au background d'initier le renommage (il renverra le tabId)
     chrome.runtime.sendMessage({ type: "RENAME_TAB_REQUEST" });
   }
 });
 
-
-// BOOT
 overrideTitle();
 observeTitle();
 startLoop();

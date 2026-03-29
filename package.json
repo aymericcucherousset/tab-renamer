@@ -7,13 +7,20 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "build-test": "tsc && vite build --config vite.content.config.ts && vite build --config vite.background.config.ts",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts --ignore-pattern 'dist/*'",
+    "lint:fix": "eslint . --ext .ts --fix --ignore-pattern 'dist/*'"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/chrome": "^0.1.38",
     "@types/firefox-webext-browser": "^143.0.0",
     "@types/webextension-polyfill": "^0.12.5",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0",
+    "jiti": "^2.6.1",
     "typescript": "~5.9.3",
+    "typescript-eslint": "^8.57.2",
     "vite": "^8.0.1"
   }
 }
