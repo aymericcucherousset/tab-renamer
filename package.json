@@ -1,0 +1,19 @@
+{
+  "name": "tab-renamer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build-test": "tsc && vite build --config vite.content.config.ts && vite build --config vite.background.config.ts",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.38",
+    "@types/firefox-webext-browser": "^143.0.0",
+    "@types/webextension-polyfill": "^0.12.5",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1"
+  }
+}
