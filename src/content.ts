@@ -56,7 +56,8 @@ async function init() {
 }
 
 function triggerRename() {
-  const newName = prompt("Nouveau nom de l'onglet :");
+  const label = chrome.i18n.getMessage("rename_tab");
+  const newName = prompt(label);
 
   if (!newName || !currentTabId) return;
 
